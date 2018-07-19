@@ -37,9 +37,9 @@ class Model{
   }
 }
 
-$object = new Model();
-$object->getCompanyName();
-$object->getPosedValues();
+$model = new Model();
+$model->getCompanyName();
+$model->getPosedValues();
 
 ?>
 
@@ -62,7 +62,7 @@ $object->getPosedValues();
               <div class="form-group col-md-6">
                 <select class="form-control form-group" name="manufacturer_name">
                   <?php
-                    while($row = $object->result->fetch_assoc()) {
+                    while($row = $model->result->fetch_assoc()) {
                       echo '<option value="'.$row['car_company_name'].'"selected>'.$row['car_company_name'].'</option>';
                     }
                   ?>

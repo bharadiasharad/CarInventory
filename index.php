@@ -2,12 +2,17 @@
 include_once 'database_crud.php';
 include 'header.php';
 
-class Index{
+class Manufacture{
+  private $database;
+
+  function __construct() {   
+    $this->database = new Database();    
+  }
+
   //will get the company name and send it to write in database
   function getPostValues(){
     if(isset($_POST['manufacturer_name']) && !empty($_POST['manufacturer_name'])){
-      $database = new Database();
-      $status = $database -> insertCompanyName($_POST['manufacturer_name']);
+      $status = $this->database -> insertCompanyName($_POST['manufacturer_name']);
       if($status){
         echo "<script type='text/javascript'>alert('This company was already present!');</script>";
       }
@@ -16,8 +21,8 @@ class Index{
   }
 }
 
-$object = new Index();
-$object->getPostValues();
+$manufacturer = new Manufacture();
+$manufacturer->getPostValues();
 
 ?>
 
